@@ -1,0 +1,15 @@
+/codestyles/Default.xml
+/colors/
+/consoles/
+/disabled_*
+/extensions/
+/jdbc-drivers/
+/options
+!/options/editor.xml
+!/options/ide.general.xml
+!/options/updates.xml
+/plugins/
+/port
+/port.lock
+/tasks/
+*.key
