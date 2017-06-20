@@ -7,7 +7,7 @@ Global configuration for PhpStorm
 Put content of this project into PhpStorm `config` folder:
 
 ```bash
-# Go to Phpstorm folder
+# Go to PhpStorm folder
 cd ~/.PhpStorm2017.1
 
 # Remove the current config folder
@@ -19,7 +19,7 @@ git clone "https://github.com/mauchede/phpstorm-config"
 
 __Note 1__: Make sure PhpStorm is not running, or it will overwrite the changed files before shutting down.
 
-__Note 2__: Location of the PhpStorm folder is depending on OS and PhpStorm version. See section [Project and IDE settings](https://www.jetbrains.com/phpstorm/help/project-and-ide-settings.html#d739736e149) for more information about the configuration directory structure.
+__Note 2__: Location of the PhpStorm folder is depending on OS and PhpStorm version. See section [Project and IDE settings](https://www.jetbrains.com/help/phpstorm/project-and-ide-settings.html) for more information about the configuration directory structure.
 
 ## Contributing
 
@@ -35,5 +35,5 @@ The original project has been created by [nicwortel](https://github.com/nicworte
 
 ## Links
 
-* [project and ide settings](https://www.jetbrains.com/phpstorm/help/project-and-ide-settings.html#d739736e149)
+* [project and ide settings](https://www.jetbrains.com/phpstorm/help/project-and-ide-settings.html)
 * [nicwortel/phpstorm-ide-config](https://github.com/nicwortel/phpstorm-ide-config)
