@@ -7,7 +7,6 @@
 /options/*
 !options/editor.xml
 !options/ide.general.xml
-!options/updates.xml
 /plugins/*
 /port
 /port.lock
