@@ -30,4 +30,3 @@ The original project has been created by [nicwortel](https://github.com/nicworte
 
 * [project and ide settings](https://www.jetbrains.com/phpstorm/help/project-and-ide-settings.html)
 * [nicwortel/phpstorm-ide-config](https://github.com/nicwortel/phpstorm-ide-config)
-* [timonier/version-lister](https://github.com/timonier/version-lister)

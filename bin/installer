@@ -21,9 +21,8 @@ fi
 
 case "$1" in
     install )
-        export $(curl --location "https://github.com/timonier/version-lister/raw/generated/_/phpstorm/latest" | xargs)
         PHPSTORM_CONFIG_FOLDER_PREVIOUS="$(ls --all "${HOME}" | grep ".PhpStorm" | tail --lines 1)"
-        PHPSTORM_CONFIG_FOLDER_NEW=".PhpStorm${PHPSTORM_MAJOR_VERSION}"
+        PHPSTORM_CONFIG_FOLDER_NEW="$(cat /snap/phpstorm/current/bin/phpstorm.sh | grep --only-matching --perl-regexp "(\.PhpStorm[0-9]{4}\.[0-9]+)" | head --lines 1)"
 
         if [ -n "${PHPSTORM_CONFIG_FOLDER_PREVIOUS}" ] ; then
             if [ ${PHPSTORM_CONFIG_FOLDER_PREVIOUS} != "${PHPSTORM_CONFIG_FOLDER_NEW}" ] ; then
