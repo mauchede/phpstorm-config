@@ -30,12 +30,12 @@ case "$1" in
             fi
             git -C "${HOME}/${PHPSTORM_CONFIG_FOLDER_NEW}/config" fetch origin
             git -C "${HOME}/${PHPSTORM_CONFIG_FOLDER_NEW}/config" checkout --force origin/master
+
+            rm --force --recursive $(ls --all "${HOME}" | grep ".PhpStorm" | grep --invert-match "${PHPSTORM_CONFIG_FOLDER_NEW}")
         else
             mkdir "${HOME}/${PHPSTORM_CONFIG_FOLDER_NEW}"
             git clone "https://github.com/mauchede/phpstorm-config" "${HOME}/${PHPSTORM_CONFIG_FOLDER_NEW}/config"
         fi
-
-        rm --force --recursive $(ls --all "${HOME}" | grep ".PhpStorm" | grep --invert-match "${PHPSTORM_CONFIG_FOLDER_NEW}")
     ;;
 
     uninstall )
