@@ -9,6 +9,12 @@ Location of the PhpStorm folder is depending on OS and PhpStorm version. See sec
 Linux users can use the [installer](https://github.com/mauchede/phpstorm-config/blob/master/bin/installer):
 
 ```sh
+# Use local installation
+
+bin/installer install
+
+# Use remote installation
+
 curl --location "https://github.com/mauchede/phpstorm-config/raw/master/bin/installer" | sh -s -- install
 ```
 
@@ -21,6 +27,8 @@ __Note__: Make sure PhpStorm is not running, or it will overwrite the changed fi
 3. Commit your changes: `git commit -am 'Add some feature'`.
 4. Push to the branch: `git push origin my-new-feature`.
 5. Submit a pull request.
+
+If you like / use this project, please let me known by adding a [★](https://help.github.com/articles/about-stars/) on the [GitHub repository](https://github.com/mauchede/phpstorm-config).
 
 ## Credits
 
