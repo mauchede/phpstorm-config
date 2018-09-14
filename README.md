@@ -6,16 +6,36 @@ Global configuration for PhpStorm
 
 Location of the PhpStorm folder is depending on OS and PhpStorm version. See section [Project and IDE settings](https://www.jetbrains.com/help/phpstorm/project-and-ide-settings.html) for more information about the configuration directory structure.
 
-Linux users can use the [installer](https://github.com/mauchede/phpstorm-config/blob/master/bin/installer):
+### Linux
+
+#### Xubuntu
 
 ```sh
 # Use local installation
 
+git checkout linux/xubuntu
 bin/installer install
 
 # Use remote installation
 
-curl --location "https://github.com/mauchede/phpstorm-config/raw/master/bin/installer" | sh -s -- install
+curl --location "https://github.com/mauchede/phpstorm-config/raw/linux/xubuntu/bin/installer" | sh -s -- install
+```
+
+__Note__: Make sure PhpStorm is not running, or it will overwrite the changed files before shutting down.
+
+### macOS
+
+#### Darwin
+
+```sh
+# Use local installation
+
+git checkout mac-os/darwin
+bin/installer install
+
+# Use remote installation
+
+curl --location "https://github.com/mauchede/phpstorm-config/raw/mac-os/darwin/bin/installer" | sh -s -- install
 ```
 
 __Note__: Make sure PhpStorm is not running, or it will overwrite the changed files before shutting down.
