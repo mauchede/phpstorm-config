@@ -1,0 +1,42 @@
+#!/bin/sh
+set -e -u -x
+
+# Check environment
+
+fail() {
+    echo 1>&2 "$1"
+    echo 1>&2 "Usage: $(basename "$0") [install|uninstall]"
+    exit 255
+}
+
+if [ "$#" -lt 1 ]; then
+    fail "Invalid number of arguments."
+fi
+
+# Run installer
+
+case "$1" in
+    install)
+        PHPSTORM_CONFIG_FOLDER_PREVIOUS="$(ls -a "${HOME}"/Library/Preferences | grep -e "^PhpStorm" | tail -n 1)"
+        PHPSTORM_CONFIG_FOLDER_NEW="$(xpath /Applications/PhpStorm.app/Contents/Info.plist "//key[text() = 'idea.paths.selector']/following-sibling::string[1]/text()" 2>/dev/null)"
+        if [ -n "${PHPSTORM_CONFIG_FOLDER_PREVIOUS}" ]; then
+            if [ "${PHPSTORM_CONFIG_FOLDER_PREVIOUS}" != "${PHPSTORM_CONFIG_FOLDER_NEW}" ]; then
+                mv "${HOME}"/Library/Preferences/"${PHPSTORM_CONFIG_FOLDER_PREVIOUS}" "${HOME}"/Library/Preferences/"${PHPSTORM_CONFIG_FOLDER_NEW}"
+            fi
+            git -C "${HOME}"/Library/Preferences/"${PHPSTORM_CONFIG_FOLDER_NEW}" fetch origin --prune
+            git -C "${HOME}"/Library/Preferences/"${PHPSTORM_CONFIG_FOLDER_NEW}" checkout --force origin/master
+            find "${HOME}"/Library/Preferences \( -maxdepth 1 -name "PhpStorm*" ! -name "${PHPSTORM_CONFIG_FOLDER_NEW}" -type d \) -exec rm -f -r {} \;
+        else
+            mkdir -p "${HOME}"/Library/Preferences/"${PHPSTORM_CONFIG_FOLDER_NEW}"
+            git clone "https://github.com/mauchede/phpstorm-config" "${HOME}"/Library/Preferences/"${PHPSTORM_CONFIG_FOLDER_NEW}"
+        fi
+        ;;
+
+    uninstall)
+        find "${HOME}"/Library/Preferences \( -maxdepth 1 -name "PhpStorm*" -type d \) -exec rm -f -r {} \;
+        ;;
+
+    *)
+        fail "Argument \"$1\" is invalid."
+        ;;
+esac
