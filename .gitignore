@@ -11,5 +11,6 @@
 /port
 /port.lock
 /tasks/*
+/user.web.token
 *.key
 *.vmoptions
