@@ -1,0 +1,38 @@
+#!/bin/sh
+set -e -u -x
+
+# Check environment
+
+fail() {
+    echo 1>&2 "$1"
+    echo 1>&2 "Usage: $(basename "$0") [install|uninstall]"
+    exit 255
+}
+
+if [ "$#" -lt 1 ]; then
+    fail "Invalid number of arguments."
+fi
+
+# Run installer
+
+case "$1" in
+    install)
+        PHPSTORM_CONFIG_FOLDER="${HOME}"/.config/JetBrains/"$(ls -a "${HOME}"/.config/JetBrains | grep PhpStorm | tail -n 1)"
+        if [ ! -d "${PHPSTORM_CONFIG_FOLDER}"/.git ]; then
+            TMP_CONFIG_FOLDER="$(mktemp -d)"
+            git clone "https://github.com/mauchede/phpstorm-config" "${TMP_CONFIG_FOLDER}"
+            cp -R "${TMP_CONFIG_FOLDER}/.git" "${PHPSTORM_CONFIG_FOLDER}"/.git
+        fi
+        git -C "${PHPSTORM_CONFIG_FOLDER}" fetch origin --prune
+        git -C "${PHPSTORM_CONFIG_FOLDER}" checkout --force origin/master
+        ;;
+
+    uninstall)
+        PHPSTORM_CONFIG_FOLDER="${HOME}"/.config/JetBrains/"$(ls -a "${HOME}"/.config/JetBrains | grep .PhpStorm | tail -n 1)"
+        rm -f -r "${PHPSTORM_CONFIG_FOLDER}"/.git
+        ;;
+
+    *)
+        fail "Argument \"$1\" is invalid."
+        ;;
+esac
