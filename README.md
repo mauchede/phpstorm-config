@@ -1,6 +1,6 @@
 # README
 
-Global configuration for PhpStorm
+Set of files for configuring PhpStorm
 
 ## Installation
 
@@ -8,34 +8,17 @@ Location of the PhpStorm folder is depending on OS and PhpStorm version. See sec
 
 ### Linux
 
-#### Xubuntu
+#### Ubuntu
 
 ```sh
 # Use local installation
 
-git checkout linux/xubuntu
+git checkout linux/ubuntu
 bin/installer install
 
 # Use remote installation
 
-curl --location "https://gitlab.com/mauchede/phpstorm-config/raw/linux/xubuntu/bin/installer" | bash -s -- install
-```
-
-__Note__: Make sure PhpStorm is not running, or it will overwrite the changed files before shutting down.
-
-### macOS
-
-#### Darwin
-
-```sh
-# Use local installation
-
-git checkout mac-os/darwin
-bin/installer install
-
-# Use remote installation
-
-curl --location "https://gitlab.com/mauchede/phpstorm-config/raw/mac-os/darwin/bin/installer" | bash -s -- install
+curl --location "https://gitlab.com/mauchede/phpstorm-config/raw/linux/ubuntu/bin/installer" | bash -s -- install
 ```
 
 __Note__: Make sure PhpStorm is not running, or it will overwrite the changed files before shutting down.

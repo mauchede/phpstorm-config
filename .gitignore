@@ -1,9 +1,11 @@
+/.updated_plugins_list
 /codestyles/Default.xml
 /colors/*
 /consoles/*
 /disabled_*
 /extensions/*
 /jdbc-drivers/*
+/mdn/*
 /options/*
 !options/editor.xml
 !options/ide.general.xml
@@ -11,6 +13,9 @@
 /port
 /port.lock
 /tasks/*
+/terminal/*
 /user.web.token
+/workspace/*
 *.key
+*.license
 *.vmoptions
